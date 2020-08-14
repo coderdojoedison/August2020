@@ -1,0 +1,105 @@
+import random as rand
+
+ttt = {
+  1: ' 1 ', 2: ' 2 ', 3: ' 3 ',
+  4: ' 4 ', 5: ' 5 ', 6: ' 6 ',
+  7: ' 7 ', 8: ' 8 ', 9: ' 9 '
+}
+
+def setboard(ttt):
+  for space in ttt:
+    if ttt[space] == ' X ' or ttt[space] == ' O ':
+      ttt[space] = " " + str(space) + " "
+
+def printboard(ttt):
+  print("This is the board: ")
+  print (ttt[1] + "|" + ttt[2] + "|" + ttt[3])
+  print("___+___+__")
+  print (ttt[4] + "|" + ttt[5] + "|" + ttt[6])
+  print("___+___+__")
+  print (ttt[7] + "|" + ttt[8] + "|" +  ttt[9])
+
+def preventovveride (ttt, choice):
+  used = False
+  if ttt[int(choice)] == ' X ' or ttt[ int(choice)] == ' O ':
+    used = True
+  return used
+
+def wincheck(ttt):
+  win = False
+  if ttt[1] == ttt[2] and ttt[2] == ttt[3]:
+    win = True
+  elif ttt[4] == ttt[5] and ttt[5] == ttt[6]:
+    win = True
+  elif ttt[7] == ttt[8] and ttt[8] == ttt[9]:
+    win = True
+  elif ttt[1] == ttt[4] and ttt[4] == ttt[7]:
+    win = True
+  elif ttt[2] == ttt[5] and ttt[5] == ttt[8]:
+    win = True
+  elif ttt[3] == ttt[6] and ttt[6] == ttt[9]:
+    win = True
+  elif ttt[1] == ttt[5] and ttt[5] == ttt[9]:
+    win = True
+  elif ttt[3] == ttt[5] and ttt[5] == ttt[7]:
+    win = True
+  return win
+
+play_again = "Y"
+
+print("Hello. You will be X. The Computer will be O.")
+
+setboard(ttt)
+printboard(ttt)
+
+for i in range (9):
+  if (i % 2 == 0):
+    turn = ' X '
+      
+  else:
+    turn = ' O '
+  
+  if (turn == ' X '):
+    choice = input("Where would you like to place your letter " + turn + ": ")
+
+  elif (turn == ' O '):
+    choice = rand.randint(1, 8) 
+    print ("Computer chose " + str (choice))
+
+
+  while (preventovveride(ttt, choice) == True):
+    if turn == ' X ':
+      print("Sorry, that spot is already taken!") 
+      choice = input("Choose another spot " + turn + ": ")
+    else: 
+      while (preventovveride(ttt, choice) == True):
+        choice = rand.randint(1, 8) 
+        print("Computer chose " + str(choice))
+
+  ttt[int(choice)] = turn
+    
+
+  wincheck(ttt)
+  if (wincheck(ttt) == True):
+    print (" ")
+    printboard(ttt)
+    print("\n" + turn + "won!")
+    break
+
+
+  print (" ")
+  printboard(ttt)
+
+if(wincheck(ttt) == False):
+  print("The game ended in a draw!")
+
+  
+
+
+
+
+
+
+  
+
+
