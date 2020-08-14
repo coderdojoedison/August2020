@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+body {
+    background-color: #186F76 ;
+    
+}
+
+.todo-wrapper {
+    margin-top: 50px;
+    background-color: #F3F3F3;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    font-weight: 300;
+    font-family: 'Nunito', cursive;
+    
+}
+
+.todo-wrapper h2 {
+    margin: 0;
+    font-family: 'Bad Script', cursive;
+}
+
+.todo-wrapper p {
+    font-style: italic;
+    color: #666;
+    margin: 5px 0;
+    font-family: 'Nunito', cursive;
+}
+
+.todo-wrapper ol {
+    margin: 20px 0;
+}
+
+.todo-wrapper ol li {
+    margin: 5px 0;
+    padding: 3px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: 0;
+    -o-transition: 0;
+    transition: all 0.5s ease-out;
+}
+
+.todo-wrapper ol li:nth-child(even) {
+    background: #BEF4F8;
+    
+}
+
+.todo-wrapper .completed {
+    text-decoration: line-through;
+    color: #666;
+}
+
+.todo-wrapper .pretty-button {
+    margin: 50px 2px;
+    padding: 5px 20px;
+    border-radius: 75px;
+    background-color: #0093D5;
+    border: none;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    font-size: small;
+    font-family: 'Nunito', cursive;
+}
+
+.todo-wrapper .pretty-button:hover {
+    cursor: pointer;
+    opacity: 0.55;
+}
+
+.todo-wrapper input {
+    padding: 3px;
+    width: 200;
+}
+
+.todo-wrapper form {
+    display: inline-block;
+    padding: 0px 0px 0px 160px;
+   
+}
+
+#control-wrapper {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.todo-wrapper #clear-button {
+    background-color: #49B749;
+}
+
+.todo-wrapper #empty-button {
+    background-color: #9B1C20;
+}
+
+
+@media only screen and (min-width: 1400px) {
+    .todo-wrapper {
+        width: 50%;
+    }
+
+    .todo-wrapper input {
+        width: 600px;
+    }
+    
+}
+
+@media only screen and (max-width: 1399px) and (min-width: 750px) {
+    .todo-wrapper {
+        width: 75%;
+    }
+
+    .todo-wrapper input {
+        width: 400px;
+    }
+}
